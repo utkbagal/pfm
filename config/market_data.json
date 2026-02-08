@@ -1,0 +1,19 @@
+{
+  "provider": "yahoo",
+
+  "defaults": {
+    "timeframe": "1d",
+    "lookback_days": 120
+  },
+
+  "shoonya": {
+    "user_id": "${SHOONYA_USER}",
+    "password": "${SHOONYA_PASSWORD}",
+    "api_key": "${SHOONYA_API_KEY}"
+  },
+
+  "yahoo": {
+    "interval": "1d",
+    "exchange_suffix": ".NS"
+  }
+}
