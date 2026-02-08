@@ -1,0 +1,14 @@
+{
+  "bullish": {
+    "ema_alignment": true,
+    "price_above_ema_50": true
+  },
+  "bearish": {
+    "price_below_ema_50": true,
+    "ema_50_below_ema_200": true
+  },
+  "volatility": {
+    "atr_percent_high": 2.0,
+    "atr_percent_low": 0.8
+  }
+}
