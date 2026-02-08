@@ -1,0 +1,8 @@
+{
+  "user_id": "${SHOONYA_USER}",
+  "password": "${SHOONYA_PASSWORD}",
+  "vendor_code": "${SHOONYA_VENDOR_CODE}",
+  "api_key": "${SHOONYA_API_KEY}",
+  "imei": "1234567890",
+  "totp_secret": "${SHOONYA_TOTP_SECRET}"
+}
