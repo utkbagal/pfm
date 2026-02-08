@@ -1,0 +1,5 @@
+{
+  "min_avg_volume": 500000,
+  "min_atr_percent": 1.0,
+  "max_spread_percent": 0.3
+}
