@@ -1,0 +1,8 @@
+{
+  "roe_min": 15,
+  "roce_min": 15,
+  "debt_to_equity_max": 0.6,
+  "sales_growth_3y_min": 10,
+  "profit_growth_3y_min": 10,
+  "operating_cash_flow_positive": true
+}
