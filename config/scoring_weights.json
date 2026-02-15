@@ -1,0 +1,8 @@
+{
+  "setup": 30,
+  "trend": 20,
+  "volume": 15,
+  "sector": 15,
+  "market": 10,
+  "relative_strength": 10
+}
