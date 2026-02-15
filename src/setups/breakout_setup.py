@@ -1,6 +1,7 @@
-import pandas as pd
 from typing import Dict, Optional
+import pandas as pd
 from .base_setup import SetupDetector
+from .volume_analyzer import VolumeAnalyzer
 
 
 class BreakoutSetup(SetupDetector):
@@ -14,19 +15,21 @@ class BreakoutSetup(SetupDetector):
         if trend_info["trend"] != "UP":
             return None
 
+        if len(df) < 25:
+            return None
+
         latest = df.iloc[-1]
         prev = df.iloc[:-1]
 
         range_high = prev["high"].tail(20).max()
-        volume_multiple = (
-            latest["volume"] / latest["vol_avg_20"]
-            if latest["vol_avg_20"] else 0
-        )
+        breakout_margin = (latest["close"] - range_high) / range_high
+
+        volume_ok = VolumeAnalyzer.is_volume_spike(df, threshold=1.7)
 
         if (
-            latest["close"] > range_high
-            and volume_multiple >= 1.5
-            and latest["rsi_14"] >= 55
+            breakout_margin > 0.003
+            and volume_ok
+            and latest["rsi_14"] >= 60
         ):
             return {
                 "setup_type": "BREAKOUT",
@@ -34,7 +37,10 @@ class BreakoutSetup(SetupDetector):
                 "strength": "HIGH",
                 "evidence": {
                     "range_high": round(range_high, 2),
-                    "volume_multiple": round(volume_multiple, 2),
+                    "breakout_margin_pct": round(breakout_margin * 100, 2),
+                    "volume_multiple": round(
+                        VolumeAnalyzer.volume_multiple(df), 2
+                    ),
                     "rsi": round(latest["rsi_14"], 1)
                 }
             }
