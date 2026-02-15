@@ -1,0 +1,6 @@
+{
+  "block_in_bearish_market": true,
+  "allow_neutral_market": true,
+  "require_uptrend_for_long": true,
+  "block_if_sector_weak": false
+}
